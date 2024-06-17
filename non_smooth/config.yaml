@@ -1,0 +1,42 @@
+model:
+  model_name: "gpt2"    # gpt2, bert-base-uncased
+  tokenizer_name: null
+  use_slow_tokenizer: False
+  trust_remote_code: False
+
+dataset:
+  data_dir: null
+  cache_dir: null
+  loadit_dir: null
+  use_loadit: True
+  streaming: False
+  batch_size_train: 2
+  batch_size_eval: 2
+
+logging:
+  wandb_project: null
+  wandb_name: null
+
+train:
+  epochs: 1
+  max_steps: 50000
+
+  gradient_clip_norm: null
+
+  # training random seed
+  seed: null
+
+  # for huggingface accelerator
+  gradient_accumulation_steps: 1
+
+  # output location
+  output_dir: null
+
+optimizer:
+  name: "o2nc_ogd"
+  lr: 3e-4
+  schedule: "linear"
+  warmup: 5000
+  beta: 0.9
+  weight_decay: 0.0
+  random_scaling: False
